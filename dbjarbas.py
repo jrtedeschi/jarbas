@@ -5,6 +5,7 @@ class DBJarbas:
     def __init__(self, dbname="records.sqlite"):
         self.dbname = dbname
         self.conn = sqlite3.connect(dbname)
+        self.conn.text_factory = str
 
     def setup(self):
         tblstmt = "CREATE TABLE IF NOT EXISTS items (description text, owner text)"
