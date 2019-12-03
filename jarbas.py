@@ -45,8 +45,8 @@ def get_last_update_id(updates):
 def get_last_chat_id_and_text(updates):
     num_updates = len(updates["result"])
     last_update = num_updates - 1
-    text = updates["result"][last_update]["message"]["text"]
-    chat_id = updates["result"][last_update]["message"]["chat"]["id"]
+    text = updates["result"][last_update]["message"]["text"].encode('utf8')
+    chat_id = updates["result"][last_update]["message"]["chat"]["id"].encode('utf8')
     return (text, chat_id)
 
 
@@ -60,8 +60,8 @@ def send_message(text, chat_id, reply_markup=None):
 
 def handle_updates(updates):
     for update in updates["result"]:
-        text = update["message"]["text"]
-        chat = update["message"]["chat"]["id"]
+        text = update["message"]["text"].encode('utf8')
+        chat = update["message"]["chat"]["id"].encode('utf8')
         items = db.get_items(chat)  ##
         if text == "/done":
             keyboard = build_keyboard(items)
