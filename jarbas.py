@@ -67,7 +67,7 @@ def handle_updates(updates):
             keyboard = build_keyboard(items)
             send_message("Select an item to delete", chat, keyboard)
         elif text == "/start":
-            send_message("Olá! Eu sou Jarbas, bot do João Tedeschi, estou em beta! o que posso fazer é anotar coisas pra vc! Escreva /done para remover itens", chat)
+            send_message("Ola! Eu sou Jarbas, bot do Joao Tedeschi, estou em beta! Eu posso anotar coisas pra vc! Escreva /done para remover itens", chat)
         elif text.startswith("/"):
             continue
         elif text in items:
