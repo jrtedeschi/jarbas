@@ -10,6 +10,7 @@ from dbjarbas import DBJarbas
 
 
 db = DBJarbas()
+db.setup()
 
 TOKEN = "932080968:AAGcaXz0dHQ-NDEF-k5fkmCKhJrwxbTNPjY"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
@@ -70,7 +71,6 @@ def handle_updates(updates):
         elif text.startswith("/"):
             continue
         elif text in items:
-            
             db.delete_item(text, chat)  ##
             items = db.get_items(chat)  ##
             keyboard = build_keyboard(items)
@@ -99,4 +99,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    db.setup()
